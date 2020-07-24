@@ -40,7 +40,7 @@ NavigationLayout:
             spacing : '8dp'
             orientation: 'vertical'
             Image:
-                source: 'vetal.jpg'
+                source: './icons/vetal.jpg'
             ScrollView:
                 MDList:
                     id: list
