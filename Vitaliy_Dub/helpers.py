@@ -21,7 +21,7 @@ NavigationLayout:
             MDGridLayout:
                 cols:2 
                 padding : [25,68,30,30]
-                spacing : [15,15]
+                spacing : [15,6.686]
                 id : layout
                 
 

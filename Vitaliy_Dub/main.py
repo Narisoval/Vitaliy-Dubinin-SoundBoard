@@ -72,11 +72,11 @@ class mainApp(MDApp):
             size_hint = (.7,.8),
             items=[
                 Item(text = 'Стандартная картинка', source = './icons/dd.png', on_press = lambda e : self.change_icon('./icons/dd.png')),
-                Item(text = 'Виталий Алексеевич', source = './icons/Vetal.ico', on_press =  self.vitalic),
-                Item(text = 'Ария лого', source = './icons/Aria.ico', on_press = lambda e : self.change_icon('./icons/Aria.ico')),
-                Item(text='Знак Анархии', source= './icons/A.ico', on_press = lambda e : self.change_icon('./icons/A.ico')),
-                Item(text = 'ALT11', source = './icons/male.ico', on_press = self.gachi),
-                Item(text = 'Коза', source = './icons/koza.ico', on_press = lambda e : self.change_icon('./icons/koza.ico')),
+                Item(text = 'Виталий Алексеевич', source = './icons/Vetal.png', on_press =  self.vitalic),
+                Item(text = 'Ария лого', source = './icons/Aria.png', on_press = lambda e : self.change_icon('./icons/Aria.png')),
+                Item(text='Знак Анархии', source= './icons/A.png', on_press = lambda e : self.change_icon('./icons/A.png')),
+                Item(text = 'ALT11', source = './icons/male.png', on_press = self.gachi),
+                Item(text = 'Коза', source = './icons/koza.png', on_press = lambda e : self.change_icon('./icons/koza.png')),
                 Item(text = 'Бас', source = './icons/Bass.png', on_press = lambda e : self.change_icon('./icons/Bass.png')),
                 Item(text = 'Очаково', source = './icons/ochakovo.png', on_press = self.ochakovo)
             ])
@@ -84,7 +84,7 @@ class mainApp(MDApp):
         self.dialog.open()        
     
     def change_icon(self,path):
-        if self.previous_path != './icons/male.ico':
+        if self.previous_path != './icons/male.png':
             pass
         else:
             change_dict_ungachi()
@@ -98,10 +98,10 @@ class mainApp(MDApp):
     #SPECIAL CASES
     def gachi(self,obj):
         change_dict_gachi()
-        self.change_icon('./icons/male.ico')
+        self.change_icon('./icons/male.png')
 
     def vitalic(self,obj):
-        self.change_icon('./icons/Vetal.ico')
+        self.change_icon('./icons/Vetal.png')
         dict["phrase11"]["audio"].volume = 0.5
         dict["phrase11"]["audio"].play()
     
