@@ -18,11 +18,12 @@ helper = '''
 NavigationLayout:
     ScreenManager:
         Screen:
-            MDGridLayout:
-                cols:2 
-                padding : [25,68,30,30]
-                spacing : [15,6.686]
-                id : layout
+            ScrollView
+                MDGridLayout:
+                    cols:2 
+                    padding : [25,'60dp',30,30]
+                    spacing : ['1.5dp','1.5dp']
+                    id : layout
                 
 
             BoxLayout:
@@ -97,7 +98,14 @@ dict = {
             "audio": SoundLoader.load("./audio/povyazan.wav")},
 "phrase16": {
            "text" : "Как учили",
-            "audio": SoundLoader.load("./audio/strelbisha.wav")}
+            "audio": SoundLoader.load("./audio/strelbisha.wav")},
+"phrase17" : {
+            "text" : "Телевизор",
+            "audio" : SoundLoader.load("./audio/televizor.wav")},
+"phrase18" : {
+            "text" : "Заливается...",
+            "audio" : SoundLoader.load("./audio/vilivayetsa.wav")}
+
 }
 
 

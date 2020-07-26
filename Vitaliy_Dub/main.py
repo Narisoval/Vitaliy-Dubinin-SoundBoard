@@ -5,9 +5,8 @@ from kivymd.uix.button import MDIconButton
 from kivy.core.audio import Sound
 from kivymd.uix.dialog import MDDialog
 from helpers import *
-
-
-    
+from os import path
+import json
 
 class mainApp(MDApp):
 
@@ -16,10 +15,17 @@ class mainApp(MDApp):
                             on_press = lambda e: self.play_sound(dict[f"phrase{num}"]["audio"]))
         
     def build(self):
+        if path.exists('./vetaliy_settings/setts.json'):
+            with open('./vetaliy_settings/setts.json') as f:
+                settings = json.load(f)
+            self.theme_cls.theme_style = settings["Theme"]
+            self.main_icon = settings["Icon"]
+        else:
+            self.theme_cls.theme_style = 'Light'
+            self.main_icon = "./icons/dd.png"
         self.theme_cls.primary_palette = 'Yellow'
         self.theme_cls.primary_hue = '700'
-        self.theme_cls.theme_style = 'Light'
-        self.main_icon = "./icons/dd.png"
+       
         #TEMPS
         self.check_list = []
         self.previous_path = ""
@@ -35,7 +41,7 @@ class mainApp(MDApp):
 
     
     def on_start(self):
-        for i in range(1,16,2):
+        for i in range(1,18,2):
             btn1 = self.mybutton(i)
             btn2 = self.mybutton(i+1)
             lbl1 = krichLabel(i)
@@ -124,7 +130,14 @@ class mainApp(MDApp):
         elif len(self.check_list) == 1:
             self.check_list[0].play()
     
-         
+    #write settings to json
+    def on_stop(self):
+        settings = {
+            "Theme" : self.theme_cls.theme_style,
+            "Icon"  : self.main_icon
+        }
+        with open('./vetaliy_settings/setts.json', 'w') as f:
+            json.dump(settings,f)
  #ffmpeg -i rap2.wav -ss 0 -to 10 rap2.wav
 
 if __name__ == "__main__":
