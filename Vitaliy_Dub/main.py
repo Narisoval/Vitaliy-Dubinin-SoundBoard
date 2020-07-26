@@ -19,8 +19,6 @@ class mainApp(MDApp):
                 settings = json.load(f)
         self.theme_cls.theme_style = settings["Theme"]
         self.main_icon = settings["Icon"]
-        self.theme_cls.theme_style = 'Light'
-        self.main_icon = "./icons/dd.png"
         self.theme_cls.primary_palette = 'Yellow'
         self.theme_cls.primary_hue = '700'
        
