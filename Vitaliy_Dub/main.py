@@ -15,8 +15,9 @@ class mainApp(MDApp):
                             on_press = lambda e: self.play_sound(dict[f"phrase{num}"]["audio"]))
         
     def build(self):
-        with open('./vetaliy_settings/setts.json') as f:
+        with open('setts.json') as f:
                 settings = json.load(f)
+        print('READ DATA FROM INNITIAL JSON')
         self.theme_cls.theme_style = settings["Theme"]
         self.main_icon = settings["Icon"]
         self.theme_cls.theme_style = 'Light'
@@ -134,8 +135,10 @@ class mainApp(MDApp):
             "Theme" : self.theme_cls.theme_style,
             "Icon"  : self.main_icon
         }
-        with open('./vetaliy_settings/setts.json', 'w') as f:
+        with open('setts.json', 'w') as f:
             json.dump(settings,f)
+        print("WRITTEN TO JSON")
+        print(settings)
  #ffmpeg -i rap2.wav -ss 0 -to 10 rap2.wav
 
 if __name__ == "__main__":
