@@ -5,20 +5,22 @@ from kivymd.uix.button import MDIconButton
 from kivy.core.audio import Sound
 from kivymd.uix.dialog import MDDialog
 from helpers import *
-from os import path
-import json
+
 
 class mainApp(MDApp):
 
     def mybutton(self,num):
         return MDIconButton(icon=self.main_icon, 
                             on_press = lambda e: self.play_sound(dict[f"phrase{num}"]["audio"]))
-        
+    def build_config(self,config):
+        config.setdefaults('section1',{
+            'Theme' : 'Light',
+             'Icon' : './icons/dd.png'
+        }) 
     def build(self):
-        with open('./vetaliy_settings/setts.json') as f:
-                settings = json.load(f)
-        self.theme_cls.theme_style = settings["Theme"]
-        self.main_icon = settings["Icon"]
+        config = self.config
+        self.theme_cls.theme_style = config.get('section1','Theme')
+        self.main_icon = config.get('section1','Icon')
         self.theme_cls.primary_palette = 'Yellow'
         self.theme_cls.primary_hue = '700'
        
@@ -66,7 +68,6 @@ class mainApp(MDApp):
         self.root.ids.list.add_widget(theme_changer)
         self.root.ids.list.add_widget(self.icon_changer)
         
-    
     dialog = None    
     def show_dialog(self, obj):
         self.dialog = MDDialog(
@@ -125,15 +126,14 @@ class mainApp(MDApp):
             
         elif len(self.check_list) == 1:
             self.check_list[0].play()
-    
-    #write settings to json
     def on_stop(self):
-        settings = {
-            "Theme" : self.theme_cls.theme_style,
-            "Icon"  : self.main_icon
-        }
-        with open('./vetaliy_settings/setts.json', 'w') as f:
-            json.dump(settings,f)
+        self.config.setall('section1',{
+            'Theme' : self.theme_cls.theme_style,
+            'Icon'  : self.main_icon
+        })
+        with open('main.ini', 'w') as config:
+            self.config.write() 
+
  #ffmpeg -i rap2.wav -ss 0 -to 10 rap2.wav
 
 if __name__ == "__main__":
