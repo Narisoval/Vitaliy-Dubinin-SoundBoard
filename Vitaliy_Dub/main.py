@@ -126,7 +126,8 @@ class mainApp(MDApp):
             
         elif len(self.check_list) == 1:
             self.check_list[0].play()
-    def on_stop(self):
+    def on_pause(self):
+        print("EXECUTING ON PAUSE METHOD!!!")
         self.config.setall('section1',{
             'Theme' : self.theme_cls.theme_style,
             'Icon'  : self.main_icon
