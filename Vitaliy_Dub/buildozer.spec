@@ -13,10 +13,10 @@ package.domain = org.kirich
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,ico,wav
+source.include_exts = py,png,jpg,kv,atlas,ini,wav
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = icons/*, audio/*.wav
+source.include_patterns = ./icons/*.png,audio/*.wav,./vetaliy_settings/*.json
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -36,7 +36,7 @@ version = 0.2
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd
+requirements = python3,kivy,kivymd 
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes

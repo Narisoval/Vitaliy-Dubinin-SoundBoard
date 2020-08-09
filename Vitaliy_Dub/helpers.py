@@ -21,8 +21,8 @@ NavigationLayout:
             ScrollView
                 MDGridLayout:
                     cols:2 
-                    padding : [25,'60dp',30,30]
-                    spacing : ['1.5dp','1.5dp']
+                	padding : [25,'70dp',30,'5dp']
+                	spacing : ['0.7dp','0.7dp']
                     id : layout
                 
 
