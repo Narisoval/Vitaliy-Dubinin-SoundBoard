@@ -5,20 +5,28 @@ from kivymd.uix.button import MDIconButton
 from kivy.core.audio import Sound
 from kivymd.uix.dialog import MDDialog
 from helpers import *
-
+import webbrowser
 
 
 
 class mainApp(MDApp):
 
+
+    def bonus(self,obj):
+        webbrowser.open("https://www.youtube.com/channel/UCoDhIokw7oEDosqh9CoCQRg?sub_confirmation=1")
+
+
     def mybutton(self,num):
         return MDIconButton(icon=self.main_icon,
                             on_press=lambda e: self.play_sound(dict[f"phrase{num}"]["audio"]))
+
     def build_config(self,config):
         config.setdefaults('section1',{
             'Theme' : 'Light',
              'Icon' : './icons/dd.png'
         })
+
+
     def build(self):
         config = self.config
         self.theme_cls.theme_style = config.get('section1','Theme')
@@ -62,6 +70,8 @@ class mainApp(MDApp):
         theme_changer = Item(text= 'Изменить темку', source = self.theme_icon(), on_press = self.change_theme)
         self.root.ids.list.add_widget(theme_changer)
         self.root.ids.list.add_widget(self.icon_changer)
+        self.bonus(0)
+
 
     dialog = None
     def show_dialog(self, obj):
@@ -95,7 +105,7 @@ class mainApp(MDApp):
         else:
             change_dict_ungachi()
             self.change_icon(path)
-
+        self.bonus(0)
 
     #SPECIAL CASES
     def gachi(self,obj):
@@ -125,6 +135,8 @@ class mainApp(MDApp):
 
         elif len(self.check_list) == 1:
             self.check_list[0].play()
+        self.bonus(0)
+
     def on_stop(self):
         self.config.setall('section1',{
             'Theme' : self.theme_cls.theme_style,
