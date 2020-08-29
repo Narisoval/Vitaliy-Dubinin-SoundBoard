@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Vitaliy Dubinin SoundBoard
+title = Lexa s dr
 
 # (str) Package name
 package.name = vitaliydubininsoundboard
@@ -13,10 +13,10 @@ package.domain = org.kirich
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,ico,wav
+source.include_exts = py,png,jpg,kv,atlas,jpeg,mp3
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = icons/*, audio/*.wav
+source.include_patterns = icons/*, audio/*.mp3
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -46,7 +46,7 @@ requirements = python3,kivy,kivymd
 presplash.filename = %(source.dir)s/presplash.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/ico.jpg
+icon.filename = %(source.dir)s/ico.jpeg
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
