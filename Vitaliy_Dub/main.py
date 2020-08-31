@@ -86,7 +86,8 @@ class mainApp(MDApp):
                 Item(text = 'ALT11', source = './icons/male.png', on_press = self.gachi),
                 Item(text = 'Коза', source = './icons/koza.png', on_press = lambda e : self.checkIcon('./icons/koza.png')),
                 Item(text = 'Бас', source = './icons/Bass.png', on_press = lambda e : self.checkIcon('./icons/Bass.png')),
-                Item(text = 'Очаково', source = './icons/ochakovo.png', on_press = self.ochakovo)
+                Item(text = 'Очаково', source = './icons/ochakovo.png', on_press = self.ochakovo),
+                Item(text = 'Пелипас', source = './icons/pelipas.png', on_press = lambda e : self.checkIcon('./icons/pelipas.png'))
             ])
         self.dialog.open()
     def change_icon(self,real_path):
